@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'thor'
+require 'backlog_api'
+
+# 継承
+class BackLog < Thor
+  
+  # コマンド登録
+  desc 'get_timeline', 'get_timeline'
+  def get_timeline
+    puts BacklogApi::Client.new.get_timeline    
+  end
+
+  desc 'create_issue', 'create_issue'
+  def create_issue(summary)
+    puts BacklogApi::Client.new.create_issue(summary: summary)
+  end
+
+end
+
+# 実行
+BackLog.start(ARGV)
