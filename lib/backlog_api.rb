@@ -5,9 +5,8 @@ require 'xmlrpc/client'
 module BacklogApi
   class Client
 
-    # 初期化
     def initialize
-      # 環境変数をセットしてね
+
       @host = ENV["HOST"]
       @user = ENV["USER"]
       @password = ENV["PASSWORD"]
@@ -21,7 +20,7 @@ module BacklogApi
       
       @client = XMLRPC::Client.new(host, path, port, proxy_host, proxy_port, user, password, use_ssl, timeout)
     end
-    # アクセッサ
+
     attr_accessor :host, :user, :password, :client
 
     # タイムラインを取得

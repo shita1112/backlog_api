@@ -4,9 +4,8 @@
 require 'thor'
 require 'backlog_api'
 
-# 継承
 class BackLog < Thor
-  
+
   # コマンド登録
   desc 'get_timeline', 'get_timeline'
   def get_timeline
