@@ -6,12 +6,12 @@ require 'backlog_api/version'
 Gem::Specification.new do |spec|
   spec.name          = "backlog_api"
   spec.version       = BacklogApi::VERSION
-  spec.authors       = ["shibata"]
-  spec.email         = ["t.shibata@teraoka-sp.com"]
+  spec.authors       = ["a1125ts"]
+  spec.email         = ["a1125ts@aiit.ac.jp"]
   spec.description   = %q{backlogのバックログを叩くよ}
   spec.summary       = %q{backlogのバックログを叩くよ。まずはチケットを作れるようにしたよ。}
-  spec.homepage      = ""
-  # spec.license       = "MIT"
+  spec.homepage      = "https://github.com/a1125ts/backlog_api"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -20,5 +20,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "thor"
+
+	spec.add_runtime_dependency "thor"
+	spec.add_runtime_dependency 'xmlrpc/client'
+	spec.add_runtime_dependency "active_support/core_ext"
+	
 end

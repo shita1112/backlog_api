@@ -1,46 +1,45 @@
 # -*- coding: utf-8 -*-
 module BacklogApi
+  
   class Client
+    HOST = '%s.backlog.jp'
+    PATH = '/XML-RPC'
+    PORT = '443'
+    PROXY_HOST = nil
+    PROXY_PORT = nil
+    USE_SSL = true
+    TIMEOUT = 60
+        
+    METHOD = 'backlog.%s'
+    
+    attr_accessor :space, :user, :password, :client
+    
     def initialize(opt = {})
       @space = opt[:space]
       @user = opt[:user]
       @password = opt[:password]
-
-      path = '/XML-RPC'
-      port = '443'
-      proxy_host = nil
-      proxy_port = nil
-      use_ssl = true
-      timeout = 60 
-      host = "#{space}.backlog.jp"
       
-      @client = XMLRPC::Client.new(host, path, port, proxy_host, proxy_port, user, password, use_ssl, timeout)
+      @client = XMLRPC::Client.new(HOST % @space, PATH, PORT, PROXY_HOST, PROXY_PORT, @user, @password, USE_SSL, TIMEOUT)
     end
 
-    attr_accessor :space, :user, :password, :client
+    # # タイムラインを取得
+    # def get_timeline    
+    #   call('backlog.getTimeline')
+    # end
+
+    # まとめてメソッド定義
+    API_METHODS.each do |api_method|
+      define_method api_method.underscore, &->(params = {}) do
+        call METHOD % api_method, params
+      end
+    end
     
-    # タイムラインを取得
-    def get_timeline    
-      @client.call('backlog.getTimeline')
+
+    private
+
+    def call(api_method, params = {})
+      @client.call(api_method, params)
     end
-
-    # 課題追加
-    def create_issue(opt = {})
-      @client.call(
-        'backlog.createIssue', {
-          projectId: ENV["PROJECT_ID"],
-          assignerId: ENV["USER"],
-          summary: opt[:summary],
-        }
-      )
-    end
-
-    # プロジェクト取得
-    def get_projects
-      @client.call('backlog.getProjects')
-    end
-
-
 
 
   end # Client
