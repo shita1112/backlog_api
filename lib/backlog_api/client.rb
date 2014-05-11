@@ -15,9 +15,9 @@ module BacklogApi
     attr_accessor :space, :user, :password, :client
     
     def initialize(opt = {})
-      @space = opt[:space]
-      @user = opt[:user]
-      @password = opt[:password]
+      @space = opt[:space] || ENV["SPACE"]
+      @user = opt[:user] || ENV["USER"]
+      @password = opt[:password] || ENV["PASSWORD"]
       
       @client = XMLRPC::Client.new(HOST % @space, PATH, PORT, PROXY_HOST, PROXY_PORT, @user, @password, USE_SSL, TIMEOUT)
     end
