@@ -1,0 +1,76 @@
+getProjects:
+  required: [null]
+getProject:
+  required: [projectKey]
+getProject:
+  required: [projectId]
+getComponents:
+  required: [projectId]
+getVersions:
+  required: [projectId]
+getUsers:
+  required: [projectId]
+getIssueTypes:
+  required: [projectId]
+getIssue:
+  required: [issueKey]
+getIssue:
+  required: [issueId]
+getComments:
+  required: [issueId]
+countIssue:
+  required: [projectId]
+findIssue:
+  required: [projectId]
+createIssue:
+  required: [projectId, summary]
+updateIssue:
+  required: [key]
+switchStatus:
+  required: [key, statusId]
+addComment:
+  required: [key, content]
+addIssueType:
+  required: [project_id, name, color]
+updateIssueType:
+  required: [id, name, color]
+deleteIssueType:
+  required: [id, substitute_id]
+addVersion:
+  required: [project_id, name]
+updateVersion:
+  required: [id, name]
+deleteVersion:
+  required: [id]
+addComponent:
+  required: [project_id, name]
+updateComponent:
+  required: [id, name]
+deleteComponent:
+  required: [id]
+getTimeline:
+  required: [null]
+getProjectSummary:
+  required: [projectId]
+getProjectSummaries:
+  required: [null]
+getUser:
+  required: [id]
+getUserIcon:
+  required: [id]
+getActivityTypes:
+  required: [null]
+getStatuses:
+  required: [null]
+getResolutions:
+  required: [null]
+getPriorities:
+  required: [null]
+getCustomFields:
+  required: [projectId]
+getChildIssues:
+  required: [parent_issue_id]
+
+  
+
+

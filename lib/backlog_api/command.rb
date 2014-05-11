@@ -12,21 +12,11 @@ module BacklogApi
 
 
     ##################################################################################
-    # オプション
-    ##################################################################################
-    
-
-
-
-
-
-
-    ##################################################################################
     # サブコマンド定義
     ##################################################################################
     # まとめて定義
     # 例: $ backlog get_timeline
-    API_METHODS.map(&:underscore).each do |api_method|
+    API_METHODS.keys.map(&:underscore).each do |api_method|
 
       # オプション
       method_option( :from,
@@ -38,7 +28,7 @@ module BacklogApi
         )
 
       # サブコマンド定義
-      define_method api_method do        
+      define_method api_method do
         response = Client.new.send api_method
         ap response
       end

@@ -23,7 +23,7 @@ module BacklogApi
     end
 
     # まとめてメソッド定義
-    BacklogApi::API_METHODS.each do |api_method|
+    BacklogApi::API_METHODS.keys.each do |api_method|
       define_method api_method.underscore, &->(params = nil) do
         call METHOD % api_method, params
       end
