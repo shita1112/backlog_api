@@ -23,6 +23,7 @@ module BacklogApi
     end
 
     # まとめてメソッド定義
+    # 例: BacklogApi::Client.new.get_timline
     BacklogApi::API_METHODS.keys.uniq.each do |api_method|
       define_method api_method.underscore, &->(params = nil) do
         call METHOD % api_method, params
