@@ -39,7 +39,8 @@ module BacklogApi
 
       # サブコマンド定義
       define_method api_method do        
-        Client.new.send api_method
+        response = Client.new.send api_method
+        ap response
       end
     end
     

@@ -2,11 +2,13 @@
 require "thor"
 require 'xmlrpc/client'
 require "active_support/core_ext"
+require "awesome_print"
 
 require "backlog_api/version"
 require "backlog_api/const"
 require "backlog_api/client"
 require "backlog_api/command"
+
 
 
 
