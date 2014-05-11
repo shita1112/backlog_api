@@ -21,8 +21,14 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
 
+  # debug tools
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency 'pry-doc'
+  spec.add_development_dependency 'pry-debugger'
+  spec.add_development_dependency 'awesome_print'
+  spec.add_development_dependency 'tapp'
+
 	spec.add_runtime_dependency "thor"
-	spec.add_runtime_dependency 'xmlrpc/client'
-	spec.add_runtime_dependency "active_support/core_ext"
+  spec.add_runtime_dependency "activesupport"
 	
 end

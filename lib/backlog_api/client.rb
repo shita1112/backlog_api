@@ -22,23 +22,22 @@ module BacklogApi
       @client = XMLRPC::Client.new(HOST % @space, PATH, PORT, PROXY_HOST, PROXY_PORT, @user, @password, USE_SSL, TIMEOUT)
     end
 
-    # # タイムラインを取得
-    # def get_timeline    
-    #   call('backlog.getTimeline')
-    # end
-
     # まとめてメソッド定義
-    API_METHODS.each do |api_method|
-      define_method api_method.underscore, &->(params = {}) do
+    BacklogApi::API_METHODS.each do |api_method|
+      define_method api_method.underscore, &->(params = nil) do
         call METHOD % api_method, params
       end
     end
-    
 
+    
     private
 
-    def call(api_method, params = {})
-      @client.call(api_method, params)
+    def call(api_method, params = nil)
+      if params
+        @client.call(api_method, params)
+      else
+        @client.call(api_method)
+      end
     end
 
 

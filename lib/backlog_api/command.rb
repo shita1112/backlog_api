@@ -38,8 +38,8 @@ module BacklogApi
         )
 
       # サブコマンド定義
-      define_method api_method do 
-        Backlog::Client.new.send api_method
+      define_method api_method do        
+        Client.new.send api_method
       end
     end
     
