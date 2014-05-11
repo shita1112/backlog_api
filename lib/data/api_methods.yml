@@ -1,6 +1,6 @@
 getProjects:
   type: null
-  required: [null] 
+  required: [null]
 getProject:
   type: scalar
   required: [projectKey]
