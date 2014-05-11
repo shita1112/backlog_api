@@ -1,109 +1,145 @@
 getProjects:
   type: null
-  required: [null]
+  required: []
+  desc: '参加プロジェクトを配列で返します。指定できるパラメータはありません。'
 getProject:
   type: scalar
   required: [projectKey]
+  desc: 'プロジェクトキーを指定して、プロジェクトを取得します。'
 getProject:
   type: scalar
   required: [projectId]
+  desc: 'プロジェクトキーを指定して、プロジェクトを取得します。'
 getComponents:
   type: scalar
   required: [projectId]
+  desc: ''
 getVersions:
   type: scalar
   required: [projectId]
+  desc: ''
 getUsers:
   type: scalar
   required: [projectId]
+  desc: ''
 getIssueTypes:
   type: scalar
   required: [projectId]
+  desc: ''
 getIssue:
   type: scalar
   required: [issueKey]
+  desc: ''
 getIssue:
   type: scalar
   required: [issueId]
+  desc: ''
 getComments:
   type: scalar
   required: [issueId]
+  desc: ''
 countIssue:
   type: struct
   required: [projectId]
+  desc: ''
 findIssue:
   type: struct
   required: [projectId]
+  desc: ''
 createIssue:
   type: struct
   required: [projectId, summary]
+  desc: ''
 updateIssue:
   type: struct
   required: [key]
+  desc: ''
 switchStatus:
   type: struct
   required: [key, statusId]
+  desc: ''
 addComment:
   type: struct
   required: [key, content]
+  desc: ''
 addIssueType:
   type: struct
   required: [project_id, name, color]
+  desc: ''
 updateIssueType:
   type: struct
   required: [id, name, color]
+  desc: ''
 deleteIssueType:
   type: struct
   required: [id, substitute_id]
+  desc: ''
 addVersion:
   type: struct
   required: [project_id, name]
+  desc: ''
 updateVersion:
   type: struct
   required: [id, name]
+  desc: ''
 deleteVersion:
   type: struct
   required: [id]
+  desc: ''
 addComponent:
   type: struct
   required: [project_id, name]
+  desc: ''
 updateComponent:
   type: struct
   required: [id, name]
+  desc: ''
 deleteComponent:
   type: struct
   required: [id]
+  desc: ''
 getTimeline:
   type: struct
-  required: [null]
+  required: []
+  desc: '参加プロジェクトすべての課題の更新情報を配列で返します(最大50件)。指定できるパラメータはありません。'
 getProjectSummary:
   type: scalar
   required: [projectId]
+  desc: ''
 getProjectSummaries:
   type: null
-  required: [null]
+  required: []
+  desc: ''
 getUser:
   type: scalar
   required: [id]
+  desc: ''
 getUserIcon:
   type: scalar
   required: [id]
+  desc: ''
 getActivityTypes:
   type: null
-  required: [null]
+  required: []
+  desc: ''
 getStatuses:
   type: null
-  required: [null]
+  required: []
+  desc: ''
 getResolutions:
   type: null
-  required: [null]
+  required: []
+  desc: ''
 getPriorities:
   type: null
-  required: [null]
+  required: []
+  desc: ''
 getCustomFields:
   type: struct
   required: [projectId]
+  desc: ''
 getChildIssues:
   type: struct
   required: [parent_issue_id]
+  desc: ''
 

@@ -6,7 +6,7 @@ module BacklogApi
     ##################################################################################
     # サブコマンドの説明
     ##################################################################################
-    desc "get_timeline", "タイムラインを取得するよ"
+    # desc "get_timeline", "タイムラインを取得するよ"
 
 
 
@@ -16,24 +16,36 @@ module BacklogApi
     ##################################################################################
     # まとめて定義
     # 例: $ backlog get_timeline
-    BacklogApi::API_METHODS.keys.map(&:underscore).each do |api_method|
+
+   
+    BacklogApi::API_METHODS.keys.uniq.each do |api_method|
 
       # オプション
-      method_option( :from,
-        type: :string,
-        desc: "説明だよ",	
-        required: false,
-        default: "a",
-        aliases: "-f"
-        )
-
+      # とりあえず必須パラメータだけパラメータに指定できるようにする
+      BacklogApi::API_METHODS[api_method]["required"].each do |key|
+        method_option( key,
+          type: :string,
+          desc: key,
+          required: true,
+          aliases: "-#{key[0]}"
+          )
+      end
+      
+      # 説明(必須)
+      desc api_method, (BacklogApi::API_METHODS[api_method]['desc'].presence || api_method)
       # サブコマンド定義
-      define_method api_method do
+      api_method = api_method.underscore
+      define_method api_method, &->(params = nil) do
         response = Client.new.send api_method
         ap response
       end
-      
+
     end
+
+
+
+
+    # puts "1==============================="
     
   end
 end
