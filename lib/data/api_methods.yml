@@ -10,6 +10,7 @@ getProject:
   type: scalar
   required: [projectId]
   desc: 'プロジェクトキーを指定して、プロジェクトを取得します。'
+  # desc: 'プロジェクトIDを指定して、プロジェクトを取得します。'
 getComponents:
   type: scalar
   required: [projectId]

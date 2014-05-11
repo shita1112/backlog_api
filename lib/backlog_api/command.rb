@@ -19,9 +19,24 @@ module BacklogApi
       # 説明(必須)
       desc api_method.underscore, (BacklogApi::API_METHODS[api_method]['desc'].presence || api_method)
 
+
+
       # サブコマンド定義
       define_method api_method.underscore, &->(params = nil) do
-        response = Client.new.send api_method.underscore
+
+        # APIのパラメータの型の違いを吸収
+        # TODO: 微妙...scalarに関してはコマンドライン引数で取得するように修正する
+        params = 
+          case BacklogApi::API_METHODS[api_method]["type"]
+          when 'scalar'
+            options.values[0]
+          when 'struct'
+            options          
+          when nil
+            nil
+          end
+
+        response = Client.new.send api_method.underscore, params
         ap response
       end
 
