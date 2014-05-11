@@ -16,13 +16,13 @@ module BacklogApi
     ##################################################################################
     # まとめて定義
     # 例: $ backlog get_timeline
-    API_METHODS.keys.map(&:underscore).each do |api_method|
+    BacklogApi::API_METHODS.keys.map(&:underscore).each do |api_method|
 
       # オプション
       method_option( :from,
         type: :string,
         desc: "説明だよ",	
-        dequired: false,
+        required: false,
         default: "a",
         aliases: "-f"
         )
@@ -32,10 +32,6 @@ module BacklogApi
         response = Client.new.send api_method
         ap response
       end
-    end
-    
-    def hello(name="a")
-      puts "Hello #{name}"
     end
     
   end
