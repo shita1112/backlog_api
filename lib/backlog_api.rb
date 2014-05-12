@@ -3,6 +3,7 @@ require "thor"
 require 'xmlrpc/client'
 require "active_support/core_ext"
 require "awesome_print"
+require "net/netrc"
 
 require "backlog_api/version"
 require "backlog_api/const"

@@ -12,14 +12,11 @@ module BacklogApi
         
     METHOD = 'backlog.%s'
     
-    attr_accessor :space, :user, :password, :client
+    attr_accessor :space, :user, :password, :host, :client
     
     def initialize(opt = {})
-      @space = opt[:space] || ENV["SPACE"]
-      @user = opt[:user] || ENV["USER"]
-      @password = opt[:password] || ENV["PASSWORD"]
-      
-      @client = XMLRPC::Client.new(HOST % @space, PATH, PORT, PROXY_HOST, PROXY_PORT, @user, @password, USE_SSL, TIMEOUT)
+      login_from_args(opt) || login_from_netrc || login_from_environment_variables
+      @client = XMLRPC::Client.new(@host, PATH, PORT, PROXY_HOST, PROXY_PORT, @user, @password, USE_SSL, TIMEOUT)
     end
 
     # まとめてメソッド定義
@@ -40,6 +37,34 @@ module BacklogApi
         @client.call(api_method)
       end
     end
+
+    # TODO: spaceは?
+    def login_from_netrc
+      binding.pry
+      netrc = Net::Netrc.locate HOST.sub('.','') % ''
+      return unless netrc
+      @user = netrc.user
+      @password = netrc.password
+      @space = netrc.space
+      @host = HOST % @space
+    end
+
+    def login_from_environment_variables
+      return unless ENV["BACKLOG_USER"] && ENV["BACKLOG_PASSWORD"] && ENV["BACKLOG_SPACE"]
+      @user = ENV["BACKLOG_USER"]
+      @password = ENV["BACKLOG_PASSWORD"]
+      @space = ENV["BACKLOG_SPACE"]
+      @host = HOST % @space
+    end
+
+    def login_from_args(opt = {})
+      return unless opt[:user] && opt[:password] && opt[:space]
+      @user = opt[:user]
+      @password = opt[:password]
+      @space = opt[:space]
+      @host = HOST % @space
+    end
+
 
 
   end # Client
