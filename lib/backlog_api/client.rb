@@ -40,7 +40,6 @@ module BacklogApi
 
     # TODO: spaceは?
     def login_from_netrc
-      binding.pry
       netrc = Net::Netrc.locate HOST.sub('.','') % ''
       return unless netrc
       @user = netrc.user
