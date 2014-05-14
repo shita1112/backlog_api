@@ -1,8 +1,8 @@
-require_relative '../spec_helper'
+require_relative '../../spec_helper'
 
 module BacklogApi
-  describe Const do
-  end
+  # describe API_METHODS do
+  # end
 end
 
 
