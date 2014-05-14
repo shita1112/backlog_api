@@ -1,6 +1,8 @@
 getProjects:
   type: null
   required: []
+  not_required: []
+  return_type: Array
   desc: '参加プロジェクトを配列で返します。指定できるパラメータはありません。'
 getProject:
   type: scalar
