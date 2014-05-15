@@ -4,7 +4,7 @@ module BacklogApi
   class Client
     HOST = '%s.backlog.jp'
     PATH = '/XML-RPC'
-    PORT = '443'
+    PORT = '443' # HTTPS
     PROXY_HOST = nil
     PROXY_PORT = nil
     USE_SSL = true
@@ -38,7 +38,6 @@ module BacklogApi
       end
     end
 
-    # TODO: spaceは?
     def login_from_netrc
       netrc = Net::Netrc.locate HOST.sub('.','') % ''
       return unless netrc

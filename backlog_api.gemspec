@@ -21,6 +21,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'webmock' # web_api用のmock
+  spec.add_development_dependency 'vcr' # 2回目以降はローカルのデータをmockとして使用
 
   # debug tools
   spec.add_development_dependency "pry"
@@ -32,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "activesupport"
   spec.add_runtime_dependency 'awesome_print'
   spec.add_runtime_dependency 'net-netrc'
-  # spec.add_runtime_dependency 'yaml'
+
+
 	
 end
