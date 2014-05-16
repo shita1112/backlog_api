@@ -8,11 +8,10 @@ getProject:
   type: scalar
   required: [projectKey]
   desc: 'プロジェクトキーを指定して、プロジェクトを取得します。'
-getProject:
-  type: scalar
-  required: [projectId]
-  desc: 'プロジェクトキーを指定して、プロジェクトを取得します。'
-  # desc: 'プロジェクトIDを指定して、プロジェクトを取得します。'
+# getProject:
+#   type: scalar
+#   required: [projectId]
+#   desc: 'プロジェクトIDを指定して、プロジェクトを取得します。'
 getComponents:
   type: scalar
   required: [projectId]
@@ -33,10 +32,10 @@ getIssue:
   type: scalar
   required: [issueKey]
   desc: '課題キーを指定して、課題を取得します。'
-getIssue:
-  type: scalar
-  required: [issueId]
-  desc: '課題IDを指定して、課題を取得します。'
+# getIssue:
+#   type: scalar
+#   required: [issueId]
+#   desc: '課題IDを指定して、課題を取得します。'
 getComments:
   type: scalar
   required: [issueId]
