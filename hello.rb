@@ -30,8 +30,8 @@ end
 # __END__: コレ以降がインラインテンプレートになる
 __END__
 
-# @@ index: "views/index.erb"と同義っぽい
-@@ index
+# @@index: "views/index.erb"と同義っぽい
+@@index
 <html>
   <body>
     <h1>コレはインラインビューだ！</h1>
