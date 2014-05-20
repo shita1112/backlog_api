@@ -28,14 +28,14 @@ getIssueTypes:
   type: scalar
   required: [projectId]
   desc: 'プロジェクトの種別を返します。'
-getIssue:
-  type: scalar
-  required: [issueKey]
-  desc: '課題キーを指定して、課題を取得します。'
 # getIssue:
 #   type: scalar
-#   required: [issueId]
-#   desc: '課題IDを指定して、課題を取得します。'
+#   required: [issueKey]
+#   desc: '課題キーを指定して、課題を取得します。'
+getIssue:
+  type: scalar
+  required: [issueId]
+  desc: '課題IDを指定して、課題を取得します。'
 getComments:
   type: scalar
   required: [issueId]
@@ -74,7 +74,8 @@ updateIssueType:
   desc: 'プロジェクトの課題種別を更新します。'
 deleteIssueType:
   type: struct
-  required: [id, substitute_id]
+#  required: [id, substitute_id]
+  required: [id]
   desc: 'プロジェクトの課題種別を削除します。'
 addVersion:
   type: struct
@@ -84,22 +85,22 @@ updateVersion:
   type: struct
   required: [id, name]
   desc: 'プロジェクトの発生バージョン/マイルストーンを更新します。'
-deleteVersion:
-  type: struct
-  required: [id]
-  desc: 'ロジェクトの発生バージョン/マイルストーンを削除します。'
-addComponent:
-  type: struct
-  required: [project_id, name]
-  desc: 'プロジェクトのカテゴリを追加します。追加に成功した場合は、'
-updateComponent:
-  type: struct
-  required: [id, name]
-  desc: 'プロジェクトのカテゴリを更新します。'
-deleteComponent:
-  type: struct
-  required: [id]
-  desc: 'プロジェクトのカテゴリを削除します。'
+# deleteVersion:
+#   type: scalor
+#   required: [id]
+#   desc: 'プロジェクトの発生バージョン/マイルストーンを削除します。'
+# addComponent:
+#   type: struct
+#   required: [project_id, name]
+#   desc: 'プロジェクトのカテゴリを追加します。'
+# updateComponent:
+#   type: struct
+#   required: [id, name]
+#   desc: 'プロジェクトのカテゴリを更新します。'
+# deleteComponent:
+#   type: struct
+#   required: [id]
+#   desc: 'プロジェクトのカテゴリを削除します。'
 getTimeline:
   type: struct
   required: []
@@ -112,14 +113,14 @@ getProjectSummaries:
   type: null
   required: []
   desc: '全ての参加プロジェクト状況を取得します。'
-getUser:
-  type: scalar
-  required: [id]
-  desc: 'ユーザID(数値またはログインID)を指定して、ユーザを取得します。'
-getUserIcon:
-  type: scalar
-  required: [id]
-  desc: 'ユーザID(数値またはログインID)を指定して、ユーザのアイコン画像を取得します。'
+# getUser:
+#   type: scalar
+#   required: [id]
+#   desc: 'ユーザID(数値またはログインID)を指定して、ユーザを取得します。'
+# getUserIcon:
+#   type: scalar
+#   required: [id]
+#   desc: 'ユーザID(数値またはログインID)を指定して、ユーザのアイコン画像を取得します。'
 getActivityTypes:
   type: null
   required: []
@@ -136,12 +137,12 @@ getPriorities:
   type: null
   required: []
   desc: '課題の優先度一覧を取得します。'
-getCustomFields:
-  type: struct
-  required: [projectId]
-  desc: 'プロジェクトに登録してあるカスタム属性の情報を取得します。'
-getChildIssues:
-  type: struct
-  required: [parent_issue_id]
-  desc: '指定した親課題のIDの子課題を返します。'
+# getCustomFields:
+#   type: struct
+#   required: [projectId]
+#   desc: 'プロジェクトに登録してあるカスタム属性の情報を取得します。'
+# getChildIssues:
+#   type: struct
+#   required: [parent_issue_id]
+#   desc: '指定した親課題のIDの子課題を返します。'
 

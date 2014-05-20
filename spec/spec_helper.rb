@@ -8,9 +8,6 @@ require 'backlog_api' # require all
 require 'webmock'
 require 'vcr'
 
-
-
-
 # RSpecの設定
 RSpec.configure do |config|
   # VCRの設定
