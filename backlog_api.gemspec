@@ -29,12 +29,13 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry-doc'
   spec.add_development_dependency 'pry-debugger'
   spec.add_development_dependency 'tapp'
+  spec.add_development_dependency 'sinatra-contrib'
 
 	spec.add_runtime_dependency "thor"
   spec.add_runtime_dependency "activesupport"
   spec.add_runtime_dependency 'awesome_print'
   spec.add_runtime_dependency 'net-netrc'
-
-
+  spec.add_runtime_dependency 'sinatra'
+  spec.add_runtime_dependency 'haml'
 	
 end
