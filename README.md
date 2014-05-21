@@ -1,6 +1,6 @@
 # BacklogApi
 
-TODO: Write a gem description
+Ruby toolkit for the Backlog API.
 
 ## Installation
 
@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Get timeline
+```ruby
+require 'backlog_api'
+client = BacklogApi::Client.new
+client.get_timeline
+```
 
 ## Contributing
 

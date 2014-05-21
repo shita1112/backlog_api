@@ -5,6 +5,8 @@ require "active_support/core_ext"
 require "awesome_print"
 require "net/netrc"
 require "yaml"
+require "sinatra"
+require "haml"
 
 
 require "backlog_api/version"
