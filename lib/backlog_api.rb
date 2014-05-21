@@ -7,12 +7,14 @@ require "net/netrc"
 require "yaml"
 require "sinatra"
 require "haml"
-
+require 'sinatra'
+require 'sinatra/reloader'
 
 require "backlog_api/version"
 require "backlog_api/const"
 require "backlog_api/client"
 require "backlog_api/command"
+require "application"
 
 # TODO: ここじゃまずい気が...どこに書けばいいの？
 require "pry-debugger"

@@ -30,7 +30,6 @@ module BacklogApi
     let(:id) {ENV['BACKLOG_ID'].to_i} 
     let(:parent_issue_id) {ENV['BACKLOG_PARENTISSUEID'].to_i} 
     let(:project_name) {ENV['BACKLOG_PROJECTNAME']} 
-    let(:project_id) {ENV['BACKLOG_PROJECTID'].to_i} 
     let(:category_name) {ENV['BACKLOG_CATEGORYNAME']} 
     let(:project_id2) {ENV['BACKLOG_PROJECTID2'].to_i} 
     let(:user_id) {ENV['BACKLOG_USERID'].to_i} 
