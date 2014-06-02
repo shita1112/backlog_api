@@ -40,6 +40,17 @@ module BacklogApi
         ap response
       end
 
+      # Sinatraアプリ起動
+      desc :my_issues, '課題管理用のwebインタフェースを立ち上げる'
+      def my_issues
+        puts "Start Sinatra app..."
+        root = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
+        # `cd #{root} && ruby lib/application.rb`
+        puts "======="
+        exec "ruby lib/application.rb"
+        puts "======="
+      end
+
     end
 
 
