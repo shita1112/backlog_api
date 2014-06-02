@@ -47,7 +47,7 @@ module BacklogApi
         required: false,
         aliases: "s"
         )
-      desc :server, '課題管理用のwebインタフェースを立ち上げる'
+      desc :server, '課題管理用のwebインタフェースを立ち上げます。'
       def server
         puts "Start Sinatra app..."
         root = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
