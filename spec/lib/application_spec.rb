@@ -16,6 +16,7 @@ include Capybara::DSL
 
 # Sinatraアプリ起動
 def setup
+  # classicスタイルの場合、Sinatra::Application.newがサーバインスタンスになる
   Capybara.app = Sinatra::Application.new
 end
 
