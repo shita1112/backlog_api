@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'tapp'
   spec.add_development_dependency 'sinatra-contrib'
   spec.add_development_dependency 'simplecov' # カバレッジ測定
+  # spec.add_development_dependency 'coveralls' # カバレッジ測定
 
 	spec.add_runtime_dependency "thor"
   spec.add_runtime_dependency "activesupport"

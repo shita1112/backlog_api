@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require "simplecov"
 require "coveralls"
 
 Coveralls.wear! # この行以降にrequireしたものが対象になる
 SimpleCov.start # この行以降にrequireしたものが対象になる
-
-
-
-lib = File.expand_path('../../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 
 require 'backlog_api' # require all
