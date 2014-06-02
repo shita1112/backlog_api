@@ -41,12 +41,12 @@ module BacklogApi
       end
 
       # Sinatraアプリ起動
-       method_option( :server,
-          type: :string,
-          desc: :server,
-          required: false,
-          aliases: "s"
-          )
+      method_option( :server,
+        type: :string,
+        desc: :server,
+        required: false,
+        aliases: "s"
+        )
       desc :server, '課題管理用のwebインタフェースを立ち上げる'
       def server
         puts "Start Sinatra app..."
