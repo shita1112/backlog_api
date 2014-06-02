@@ -1,6 +1,6 @@
+[![Build Status](https://travis-ci.org/a1125ts/backlog_api.svg?branch=master)](https://travis-ci.org/a1125ts/backlog_api)
 [![Coverage Status](https://coveralls.io/repos/a1125ts/backlog_api/badge.png)](https://coveralls.io/r/a1125ts/backlog_api)
-https://travis-ci.org/a1125ts/backlog_api.svg?branch=master
-https://codeclimate.com/github/a1125ts/backlog_api/badges
+[![Code Climate](https://codeclimate.com/github/a1125ts/backlog_api.png)](https://codeclimate.com/github/a1125ts/backlog_api)
 
 
 # BacklogApi
