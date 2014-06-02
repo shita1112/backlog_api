@@ -23,13 +23,17 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'webmock' # web_api用のmock
   spec.add_development_dependency 'vcr' # 2回目以降はローカルのデータをmockとして使用
+  spec.add_development_dependency 'guard-livereload' # ブラウザ自動リロード
+  spec.add_development_dependency 'guard-rspec' # 自動テスト
+  spec.add_development_dependency 'growl' # テスト結果をgrowlで通知
+  spec.add_development_dependency 'rb-fsevent' # ファイルの変更を検知する。OSX用。いる?  
 
-  # debug tools
   spec.add_development_dependency "pry"
   spec.add_development_dependency 'pry-doc'
   spec.add_development_dependency 'pry-debugger'
   spec.add_development_dependency 'tapp'
   spec.add_development_dependency 'sinatra-contrib'
+  spec.add_development_dependency 'simplecov' # カバレッジ測定
 
 	spec.add_runtime_dependency "thor"
   spec.add_runtime_dependency "activesupport"

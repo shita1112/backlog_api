@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
+require "simplecov"
+SimpleCov.start # この行以降にrequireしたものが対象になる
+
+
+
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'bundler/setup' # look at Gemfile.lock
-require 'backlog_api' # require all
 
+require 'backlog_api' # require all
+require 'bundler/setup' # look at Gemfile.lock
 require 'webmock'
 require 'vcr'
 
@@ -28,3 +33,5 @@ RSpec.configure do |config|
   #   end
   # end
 end
+
+

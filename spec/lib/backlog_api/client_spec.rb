@@ -39,7 +39,7 @@ module BacklogApi
     describe '#get_projects' do
       it do
         VCR.use_cassette(path, opt) do # vcrのキャッシュ
-          expect(subject.get_projects.tapp).to be_a(Array)
+          expect(subject.get_projects).to be_a(Array)
         end
       end
     end
@@ -47,7 +47,7 @@ module BacklogApi
     describe '#get_project' do
       it do
         VCR.use_cassette(path, opt) do # vcrのキャッシュ
-          expect(subject.get_project(project_key).tapp).to be_a(Hash)
+          expect(subject.get_project(project_key)).to be_a(Hash)
         end
       end
     end
@@ -55,7 +55,7 @@ module BacklogApi
     describe '#get_components' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_components(project_id).tapp).to be_a(Array)
+          expect(subject.get_components(project_id)).to be_a(Array)
         end
       end
     end
@@ -63,7 +63,7 @@ module BacklogApi
     describe '#get_versions' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_versions(project_id).tapp).to be_a(Array)
+          expect(subject.get_versions(project_id)).to be_a(Array)
         end
       end
     end
@@ -71,7 +71,7 @@ module BacklogApi
     describe '#get_users' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_users(project_id).tapp).to be_a(Array)
+          expect(subject.get_users(project_id)).to be_a(Array)
         end
       end
     end
@@ -79,7 +79,7 @@ module BacklogApi
     describe '#get_issue_types' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_issue_types(project_id).tapp).to be_a(Array)
+          expect(subject.get_issue_types(project_id)).to be_a(Array)
         end
       end
     end
@@ -87,7 +87,7 @@ module BacklogApi
     describe '#get_issue' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_issue(project_id).tapp).to be_a(Hash)
+          expect(subject.get_issue(project_id)).to be_a(Hash)
         end
       end
     end
@@ -95,7 +95,7 @@ module BacklogApi
     describe '#get_users' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_users(project_id).tapp).to be_a(Array)
+          expect(subject.get_users(project_id)).to be_a(Array)
         end
       end
     end
@@ -103,7 +103,7 @@ module BacklogApi
     describe '#get_issue' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_issue(issue_id).tapp).to be_a(Hash)
+          expect(subject.get_issue(issue_id)).to be_a(Hash)
         end
       end
     end
@@ -111,7 +111,7 @@ module BacklogApi
     describe '#get_comments' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_comments(issue_id).tapp).to be_a(Array)
+          expect(subject.get_comments(issue_id)).to be_a(Array)
         end
       end
     end
@@ -119,7 +119,7 @@ module BacklogApi
     describe '#count_issue' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.count_issue(projectId: project_id).tapp).to be_a(Integer)
+          expect(subject.count_issue(projectId: project_id)).to be_a(Integer)
         end
       end
     end
@@ -127,7 +127,7 @@ module BacklogApi
     describe '#find_issue' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.find_issue(projectId: project_id).tapp(&:first)).to be_a(Array)
+          expect(subject.find_issue(projectId: project_id)).to be_a(Array)
         end
       end
     end
@@ -139,7 +139,7 @@ module BacklogApi
             subject.create_issue(
               projectId: project_id,
               summary: summary,
-              ).tapp
+              )
             ).to be_a(Hash)
         end
       end
@@ -148,7 +148,7 @@ module BacklogApi
     describe '#update_issue' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.update_issue(key: key).tapp).to be_a(Hash)
+          expect(subject.update_issue(key: key)).to be_a(Hash)
         end
       end
     end
@@ -156,7 +156,7 @@ module BacklogApi
     describe '#switch_status' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.switch_status(key: key, statusId: status_id).tapp).to be_a(Hash)
+          expect(subject.switch_status(key: key, statusId: status_id)).to be_a(Hash)
         end
       end
     end
@@ -169,7 +169,7 @@ module BacklogApi
               project_id: project_id,
               name: name,
               color: color, 
-              ).tapp
+              )
             ).to be_a(Hash)
         end
       end
@@ -183,7 +183,7 @@ module BacklogApi
               id: id,
               name: name,
               color: color, 
-              ).tapp              
+              )              
             ).to be_a(Hash)
         end
       end
@@ -196,7 +196,7 @@ module BacklogApi
           expect(
             subject.delete_issue_type(
               id: id,
-              ).tapp              
+              )              
             ).to be_a(Hash)
         end
       end
@@ -210,7 +210,7 @@ module BacklogApi
             subject.add_version(
               project_id: project_id,
               name: project_name
-              ).tapp
+              )
             ).to be_a(Hash)
         end
       end
@@ -220,7 +220,7 @@ module BacklogApi
     describe '#update_version' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.update_version(id: project_id, name: project_name).tapp).to be_a(Hash)
+          expect(subject.update_version(id: project_id, name: project_name)).to be_a(Hash)
         end
       end
     end
@@ -228,7 +228,7 @@ module BacklogApi
     describe '#get_timeline' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_timeline.tapp(&:first)).to be_a(Array)
+          expect(subject.get_timeline).to be_a(Array)
         end
       end
     end
@@ -237,7 +237,7 @@ module BacklogApi
     describe '#get_project_summary' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_project_summary(project_id).tapp).to be_a(Hash)
+          expect(subject.get_project_summary(project_id)).to be_a(Hash)
         end
       end
     end
@@ -245,7 +245,7 @@ module BacklogApi
     describe '#get_statuses' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_statuses.tapp).to be_a(Array)
+          expect(subject.get_statuses).to be_a(Array)
         end
       end
     end
@@ -253,7 +253,7 @@ module BacklogApi
     describe '#get_resolutions' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_resolutions.tapp).to be_a(Array)
+          expect(subject.get_resolutions).to be_a(Array)
         end
       end
     end
@@ -261,7 +261,7 @@ module BacklogApi
     describe '#get_priorities' do
       it do
         VCR.use_cassette(path, opt) do
-          expect(subject.get_priorities.tapp).to be_a(Array)
+          expect(subject.get_priorities).to be_a(Array)
         end
       end
     end
