@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 require "simplecov"
+require "coveralls"
+
+Coveralls.wear! # この行以降にrequireしたものが対象になる
 SimpleCov.start # この行以降にrequireしたものが対象になる
 
 
