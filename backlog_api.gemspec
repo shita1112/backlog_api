@@ -27,6 +27,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard-rspec' # 自動テスト
   spec.add_development_dependency 'growl' # テスト結果をgrowlで通知
   spec.add_development_dependency 'rb-fsevent' # ファイルの変更を検知する。OSX用。いる?  
+  spec.add_development_dependency 'capybara' # ブラウザ操作
+  spec.add_development_dependency 'selenium-webdriver'# cappybaraのドライバ(chromeとか使いたい場合はこっち)
+  spec.add_development_dependency 'capybara-webkit' # cappybaraのドライバ(headless)
+  spec.add_development_dependency 'launchy' # capybaraのsave_and_open_pageメソッド(スクリーンショットを取る)で必要
 
   spec.add_development_dependency "pry"
   spec.add_development_dependency 'pry-doc'

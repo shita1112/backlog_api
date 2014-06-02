@@ -14,6 +14,14 @@ require 'bundler/setup' # look at Gemfile.lock
 require 'webmock'
 require 'vcr'
 
+require 'capybara'
+require 'capybara/dsl'
+require 'selenium-webdriver'
+require 'capybara-webkit'
+require 'launchy'
+
+
+ 
 # RSpecの設定
 RSpec.configure do |config|
   # VCRの設定
@@ -33,6 +41,11 @@ RSpec.configure do |config|
   #     VCR.use_cassette(name, options, &example) # コレで囲むよー
   #   end
   # end
+
+  def app
+    Sinatra::Application
+  end
+
 end
 
 

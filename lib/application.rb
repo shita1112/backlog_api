@@ -35,6 +35,7 @@ helpers do
   
 end
 
+
 # アクションみたいなの
 get '/' do
   # "views/index.erb"をrender。○しかし今回は"@@ index" の部分をrenderする
@@ -77,6 +78,9 @@ post '/update_issues' do
 end
 
 
+get '/test' do
+  "test"
+end
 
 
 
