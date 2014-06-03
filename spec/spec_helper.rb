@@ -17,6 +17,7 @@ require 'vcr'
 require 'capybara'
 require 'capybara/dsl'
 require 'selenium-webdriver'
+require 'capybara/poltergeist'         
 require 'capybara-webkit'
 require 'launchy'
 

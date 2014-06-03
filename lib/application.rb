@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-require 'backlog_api'
-require "haml"
 require 'sinatra'
 require 'sinatra/reloader'
+require "haml"
+
+require 'backlog_api'
 
 # 何度も読み込まれて舞う
 PROJECT_ID = ENV['BACKLOG_PROJECTID2'].to_i
