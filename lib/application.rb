@@ -113,7 +113,7 @@ __END__
       <tr>
         <td><%= issue["summary"] %></td>
         <td><%= status_select_tag issue %></td>
-        <td><a href='<%= issue["url"] %>'>おいきなさい!!</a></td>
+        <td><a href='<%= issue["url"] %>'>リンクです!!</a></td>
       </tr>
       <% end %>
     </table>

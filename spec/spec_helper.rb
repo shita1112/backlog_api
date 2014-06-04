@@ -5,8 +5,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "simplecov"
 require "coveralls"
 
-Coveralls.wear! # この行以降にrequireしたものが対象になる
-SimpleCov.start # この行以降にrequireしたものが対象になる
+# この行以降にrequireしたものが対象になる
+# simplecov, coderails の2通りの書式でレポートを得る
+Coveralls.wear! 
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start 
 
 
 require 'backlog_api' # require all

@@ -327,11 +327,22 @@ module BacklogApi
     end
 
     describe '#login_from_args' do
-      it do
-        subject.send :login_from_args, {user: "a", password: "b", space: "c"}
-        expect(subject.user).to eq "a" # ==
-        expect(subject.password).to eq "b" 
-        expect(subject.space).to eq "c"
+      context '成功時' do
+        it do        
+          subject.send :login_from_args, {user: "a", password: "b", space: "c"}
+          expect(subject.user).to eq "a" # ==
+          expect(subject.password).to eq "b" 
+          expect(subject.space).to eq "c"
+        end
+      end
+
+      context '失敗時' do
+        it do        
+          subject.send :login_from_args, {user: "a", password: "b"}
+          expect(subject.user).not_to eq "a" # !=
+          expect(subject.password).not_to eq "b" 
+          expect(subject.space).not_to eq "c"
+        end
       end
     end
 
