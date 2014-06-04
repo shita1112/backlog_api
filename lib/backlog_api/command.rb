@@ -49,7 +49,7 @@ module BacklogApi
         )
       desc :server, '課題管理用のwebインタフェースを立ち上げます。'
       def server
-        puts "Start Sinatra app..."
+        puts "Start sinatra app..."
         root = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
         exec "cd #{root} && rackup config.ru"
       end
