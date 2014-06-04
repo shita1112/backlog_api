@@ -4,6 +4,7 @@ require_relative '../../spec_helper' # このファイルからの相対パス
 module BacklogApi
 
   WebMock.allow_net_connect! # 指定URL以外のアクセスはok by webmock
+  HOST = '%s.backlog.jp'
 
   describe Client do
     
@@ -333,6 +334,7 @@ module BacklogApi
           expect(subject.user).to eq "a" # ==
           expect(subject.password).to eq "b" 
           expect(subject.space).to eq "c"
+          expect(subject.host).to eq(HOST % "c")
         end
       end
 
@@ -342,6 +344,7 @@ module BacklogApi
           expect(subject.user).not_to eq "a" # !=
           expect(subject.password).not_to eq "b" 
           expect(subject.space).not_to eq "c"
+          expect(subject.space).not_to eq(HOST % "c")
         end
       end
     end
