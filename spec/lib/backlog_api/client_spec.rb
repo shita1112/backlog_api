@@ -328,10 +328,11 @@ module BacklogApi
     end
 
     describe '#login_from_args' do
+      subject { Client.allocate }
       context '成功時' do
         it do        
-          subject.send :login_from_args, {user: "a", password: "b", space: "c"}
-          expect(subject.user).to eq "a" # ==
+          subject.send :login_from_args, "a", "b", "c"
+          expect(subject.user).to eq "a"
           expect(subject.password).to eq "b" 
           expect(subject.space).to eq "c"
           expect(subject.host).to eq(HOST % "c")
@@ -339,17 +340,17 @@ module BacklogApi
       end
 
       context '失敗時' do
-        it do        
-          subject.send :login_from_args, {user: "a", password: "b"}
-          expect(subject.user).not_to eq "a" # !=
-          expect(subject.password).not_to eq "b" 
-          expect(subject.space).not_to eq "c"
-          expect(subject.space).not_to eq(HOST % "c")
+        it do
+          subject.send :login_from_args, "a", "b"
+          expect(subject.user).to be_nil
+          expect(subject.password).to be_nil
+          expect(subject.space).to be_nil
+          expect(subject.host).to be_nil
         end
       end
     end
 
-    # # TODO: だめだー修正だー
+    # # :TODO だめだー修正だー
     # describe '#login_from_netrc' do
     #   it do
     #     subject.send :login_from_netrc
@@ -357,7 +358,7 @@ module BacklogApi
     #   end
     # end
 
-    # # TODO: これもだめ。めちゃくちゃ
+    # # :TODO これもだめ。めちゃくちゃ
     # describe '#login_from_environment_variables' do      
     #   context '環境変数がセットされている場合は' do
     #     it do

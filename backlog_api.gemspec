@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'poltergeist' # cappybaraのドライバ(phantomjs)
   spec.add_development_dependency 'capybara-webkit' # cappybaraのドライバ(Qtwebkit直)
   spec.add_development_dependency 'launchy' # capybaraのsave_and_open_pageメソッド(スクリーンショットを取る)で必要
-
+  
   spec.add_development_dependency "pry"
   spec.add_development_dependency 'pry-doc'
   spec.add_development_dependency 'pry-debugger'
@@ -47,5 +47,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'net-netrc'
   spec.add_runtime_dependency 'sinatra'
   spec.add_runtime_dependency 'haml'
+  spec.add_runtime_dependency "formatador"
 	
 end

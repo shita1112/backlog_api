@@ -14,8 +14,8 @@ module BacklogApi
     
     attr_accessor :space, :user, :password, :host, :client
     
-    def initialize(opt = {})
-      login_from_args(opt) || login_from_netrc || login_from_environment_variables
+    def initialize(user = nil , password = nil , space = nil)
+      login_from_args(user, password, space) || login_from_netrc || login_from_environment_variables
       @client = XMLRPC::Client.new(@host, PATH, PORT, PROXY_HOST, PROXY_PORT, @user, @password, USE_SSL, TIMEOUT)
     end
 
@@ -55,11 +55,11 @@ module BacklogApi
       @host = HOST % @space
     end
 
-    def login_from_args(opt = {})
-      return unless opt[:user] && opt[:password] && opt[:space]
-      @user = opt[:user]
-      @password = opt[:password]
-      @space = opt[:space]
+    def login_from_args(user = nil, password = nil, space = nil)
+      return unless user && password && space
+      @user = user
+      @password = password
+      @space = space
       @host = HOST % @space
     end
 

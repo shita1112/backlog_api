@@ -7,12 +7,15 @@ require "coveralls"
 
 # この行以降にrequireしたものが対象になる
 # simplecov, coderails の2通りの書式でレポートを得る
-Coveralls.wear! 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-SimpleCov.start 
+# 毎回だと鬱陶しいのでCOV=trueの時だけ
+if ENV["COV"] == 'true'
+  Coveralls.wear! 
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+  SimpleCov.start
+end
 
 
 require 'backlog_api' # require all

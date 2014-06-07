@@ -15,6 +15,8 @@ require "backlog_api/const"
 require "backlog_api/client"
 require "backlog_api/command"
 require "application"
+require "formatador"
+
 
 # TODO: ここじゃまずい気が...どこに書けばいいの？
 require "pry-debugger"
