@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = BacklogApi::VERSION
   spec.authors       = ["a1125ts"]
   spec.email         = ["a1125ts@aiit.ac.jp"]
-  spec.description   = %q{backlogのバックログを叩くよ}
-  spec.summary       = %q{backlogのバックログを叩くよ。まずはチケットを作れるようにしたよ。}
+  spec.description   = %q{Ruby toolkit for the Backlog API.}
+  spec.summary       = %q{Ruby toolkit for the Backlog API + α}
   spec.homepage      = "https://github.com/a1125ts/backlog_api"
   spec.license       = "MIT"
 
