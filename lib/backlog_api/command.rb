@@ -70,11 +70,12 @@ module BacklogApi
       data = issues.map do |name,issues|
         {
           "名前" => (name || '未割当'),
-          "進捗" => progress_bar(issues),
+          "進捗(#{"|".blue}完了 #{"|".green}処理済み #{"|".yellow}処理中 #{"|".red}未対応)" => progress_bar(issues),
           "完了件数" => completed_count_per_total_count(issues),
           "完了率" => progress_rate(issues),
         }
       end
+      
       Formatador.display_table(data)
     end
 
@@ -82,7 +83,11 @@ module BacklogApi
     private
 
     def group_issues_by_assigner(issues)
-      issues.group_by{|issue|issue["assigner"]["name"] if issue["assigner"]}
+      issues = issues.sort_by { |issue| - issue["status"]["id"] }
+      group_issues = issues.group_by{|issue|issue["assigner"]["name"] if issue["assigner"]}
+      group_issues.sort_by do |name, issues|
+        - progress_rate(issues).sub('%','').to_i
+      end
     end
     
     def progress_rate(issues)
@@ -110,7 +115,7 @@ module BacklogApi
           when 4
             "|".blue
           end
-      end.tapp.tapp(&:size)
+      end
       
     end
 
